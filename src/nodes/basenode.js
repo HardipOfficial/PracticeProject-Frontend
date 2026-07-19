@@ -1,4 +1,5 @@
-import { Handle, Position } from "reactflow";
+import { Handle } from "reactflow";
+import "./BaseNode.css";
 
 export const BaseNode = ({
     title,
@@ -9,15 +10,10 @@ export const BaseNode = ({
 }) => {
     return (
         <div
+            className="base-node"
             style={{
                 width,
                 minHeight,
-                border: "1px solid #cbd5e1",
-                borderRadius: 10,
-                background: "#fff",
-                padding: 12,
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                position: "relative",
             }}
         >
             {handles.map((handle) => (
@@ -30,16 +26,13 @@ export const BaseNode = ({
                 />
             ))}
 
-            <h4
-                style={{
-                    margin: "0 0 10px",
-                    fontSize: "16px",
-                }}
-            >
+            <div className="base-node-header">
                 {title}
-            </h4>
+            </div>
 
-            {children}
+            <div className="base-node-content">
+                {children}
+            </div>
         </div>
     );
 };
